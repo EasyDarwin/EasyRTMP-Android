@@ -1,0 +1,12 @@
+
+\.gradle/
+
+\.idea/
+
+build/
+
+*.iml
+
+app/rtmp
+gradle.properties
+local.properties

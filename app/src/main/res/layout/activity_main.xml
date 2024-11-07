@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="org.easydarwin.easypusher.StreamActivity">
+
+    <TextureView
+        android:id="@+id/sv_surfaceview"
+        android:keepScreenOn="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="#fff"
+        android:id="@+id/stream_stat"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:layout_below="@id/res_container"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:id="@+id/res_container"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txt_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickResolution"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:text="分辨率："
+            android:textColor="#ffffff"/>
+
+        <Spinner
+            android:layout_toRightOf="@+id/txt_res"
+            android:layout_alignTop="@+id/txt_res"
+            android:id="@+id/spn_resolution"
+            android:background="#00ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_start_record"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:drawableLeft="@drawable/recording_marker_shape"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="00:00"
+            android:textColor="#FF0000" />
+
+        <ImageView
+            android:id="@+id/btn_switch_orientation"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="4dp"
+            android:onClick="onSwitchOrientation"
+            android:padding="10dp"
+            android:src="@drawable/ic_action_switch_oritation"
+            android:textAlignment="@id/txt_res" />
+
+        <ImageView
+            android:id="@+id/btn_switchCamera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="4dp"
+            android:onClick="onClick"
+            android:padding="10dp"
+            android:src="@drawable/ic_action_switch_camera"
+            android:textAlignment="@id/txt_res" />
+
+        <ImageView
+            android:id="@+id/toolbar_about"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="4dp"
+            android:onClick="onAbout"
+            android:padding="10dp"
+            android:src="@drawable/green"
+            android:textAlignment="@id/txt_res" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/option_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#88ffffff"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onStartOrStopPush"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/streaming_activity_push"
+                android:src="@drawable/start_push" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="#fff"
+                android:text="推送" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:id="@+id/push_screen_container"
+            android:onClick="onPushScreen"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/streaming_activity_push_screen"
+                android:src="@drawable/push_screen" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_marginTop="6dp"
+                android:text="推送屏幕" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onRecord"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/streaming_activity_record"
+                android:src="@drawable/record" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_marginTop="6dp"
+                android:text="录像" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onSetting"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_marginTop="6dp"
+                android:text="设置" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_stream_address"
+        android:textColor="#ff0000"
+        android:layout_above="@+id/option_bar_container"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/push_screen_url"
+        android:textColor="#ff0000"
+        android:layout_above="@+id/txt_stream_address"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txt_stream_status"
+        android:textColor="#ff0000"
+        android:layout_above="@+id/push_screen_url"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
